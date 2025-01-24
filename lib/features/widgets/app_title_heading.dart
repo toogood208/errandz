@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTitleHeading extends StatelessWidget {
@@ -16,12 +17,12 @@ class AppTitleHeading extends StatelessWidget {
         Text("Erra",
             style: GoogleFonts.baloo2(
                 color: !isOnboarding?Theme.of(context).colorScheme.primary:  Colors.white,
-                fontSize: 25,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.bold)),
         Text("nds",
             style: GoogleFonts.baloo2(
                 color: Theme.of(context).colorScheme.primary,
-                fontSize: 25,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.bold)),
       ],
     );

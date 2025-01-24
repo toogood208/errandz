@@ -1,4 +1,5 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:errandz/res/AppText.dart';
 import 'package:errandz/services/navigation_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
           debugShowCheckedModeBanner: false,
-          title: 'Errands',
+          title: AppText.appName,
           theme: brightness == Brightness.light ? theme.light() : theme.dark(),
           routerConfig: router,
 

@@ -1,4 +1,5 @@
 import 'package:errandz/features/authentication/login/login_screen.dart';
+import 'package:errandz/features/authentication/register/register_screen.dart';
 import 'package:errandz/features/onboarding_screen/onboarding_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,6 +18,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/login",
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: "/register",
+      builder: (context, state) => const RegisterScreen(),
     )
   ],
 );

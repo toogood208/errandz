@@ -1,16 +1,15 @@
 import 'dart:async';
 
+import 'package:errandz/res/dimension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../model/onboarding_model.dart';
 import '../view_model/onboarding_viewmodel.dart';
 
 class OnboardingSlider extends StatefulWidget {
-  const OnboardingSlider({
-    super.key,
-    required this.viewModel
-  });
+  const OnboardingSlider({super.key, required this.viewModel});
   final OnboardingViewModel viewModel;
 
   @override
@@ -34,40 +33,39 @@ class _OnboardingSliderState extends State<OnboardingSlider> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 150.h,
       child: PageView.builder(
           controller: _pageController,
-        onPageChanged:widget.viewModel.updateIndex,
+          onPageChanged: widget.viewModel.updateIndex,
           itemCount: onBoardingData.length,
-          itemBuilder: (context,index) {
+          itemBuilder: (context, index) {
             final data = onBoardingData[index];
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 280,
+                  width: 280.w,
                   child: Text(
                     data.title,
                     style: GoogleFonts.baloo2(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 30.sp,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 16,
-                ),
+                AppDimension.space16,
                 Text(
                   data.description,
-                  style: GoogleFonts.montserrat(color: Colors.white),
+                  style: GoogleFonts.montserrat(
+                      color: Colors.white, fontSize: 16.sp),
                 ),
               ],
             );
-
           }),
     );
   }

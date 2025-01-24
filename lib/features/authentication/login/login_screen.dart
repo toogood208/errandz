@@ -2,9 +2,11 @@ import 'package:errandz/features/authentication/login/view_model/login_view_mode
 import 'package:errandz/features/widgets/account_footer_widget.dart';
 import 'package:errandz/features/widgets/app_title_heading.dart';
 import 'package:errandz/features/widgets/custom_button.dart';
+import 'package:errandz/res/AppText.dart';
 import 'package:errandz/res/dimension.dart';
 import 'package:errandz/res/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +18,12 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final loginViewModel = LoginViewModel();
+  @override
+  void dispose() {
+    loginViewModel.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -30,49 +38,54 @@ class _LoginScreenState extends State<LoginScreen> {
               AppTitleHeading(),
               AppDimension.space41,
               Text(
-                "Welcome",
+                AppText.welcome,
                 style: AppTextStyle.monte20.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text("Please input your details", style: AppTextStyle.monte12),
+              Text(AppText.inputDetails, style: AppTextStyle.monte12),
               AppDimension.space37,
               CustomTextField(
                 keyboardType: TextInputType.emailAddress,
-                hintText: "Email",
+                hintText: AppText.email,
                 prefixIcon: Icon(Icons.email_outlined),
                 onChanged: (value) {
-                  //loginViewModel.validateEmail(value);
+                  loginViewModel.email.value = value;
+                  setState(() {});
                 },
               ),
-              AppDimension.space30,
+              AppDimension.space10,
               ValueListenableBuilder<bool>(
                   valueListenable: loginViewModel.obscure,
                   builder: (context, value, child) {
                     return CustomTextField(
+                      onChanged: (value) {
+                        loginViewModel.password.value = value;
+                        setState(() {});
+                      },
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: value,
-                      hintText: "Password",
+                      hintText: AppText.password,
                       prefixIcon: Icon(Icons.lock_outline),
                       suffix: TextButton(
                         onPressed: () {
                           loginViewModel.toggleObscure();
                         },
                         child: Text(
-                         value? "Show":"Hide",
+                          value ? AppText.show : AppText.hide,
                           style: AppTextStyle.monte12
                               .copyWith(fontWeight: FontWeight.w600),
                         ),
                       ),
                     );
                   }),
-              AppDimension.space10,
+              //AppDimension.space5,
               Align(
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.topRight,
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Forgot Password?",
+                    AppText.forgotPassword,
                     style: AppTextStyle.monte12.copyWith(
                         fontWeight: FontWeight.w600,
                         color: isDark
@@ -86,15 +99,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   valueListenable: ValueNotifier<bool>(loginViewModel.isValid),
                   builder: (context, value, child) {
                     return CustomButton(
-                      text: "Login",
-                      onPressed: value ? () {} : null,
+                      width: double.infinity,
+                      text: AppText.login,
+                      onPressed: value
+                          ? () {
+                              if (value) {}
+                            }
+                          : null,
                     );
                   }),
-              AppDimension.space28,
+              AppDimension.space10,
               AccountFooterWidget(
-                  mainText: "Need an account?",
-                  buttonText: "SIGN UP",
-                  onPressed: () {})
+                  mainText: AppText.needAccount,
+                  buttonText: AppText.signUp,
+                  onPressed: () {
+                    context.go('/register');
+                  })
             ],
           ),
         ),

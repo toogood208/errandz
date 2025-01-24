@@ -1,7 +1,10 @@
 import 'package:errandz/features/onboarding_screen/view_model/onboarding_viewmodel.dart';
 import 'package:errandz/features/onboarding_screen/widgets/onboarding_slider.dart';
 import 'package:errandz/features/widgets/custom_button.dart';
+import 'package:errandz/res/AppText.dart';
+import 'package:errandz/res/dimension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../widgets/app_title_heading.dart';
@@ -20,7 +23,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: AppDimension.appPadding,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
@@ -37,35 +40,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         backgroundColor: Colors.transparent,
         body: Column(
           children: [
-            SizedBox(
-              height: 70,
-            ),
+            AppDimension.space70,
             AppTitleHeading(isOnboarding: true,),
             Spacer(),
             OnboardingSlider(viewModel: viewModel),
             OnboardingIndicator(viewModel: viewModel),
-            SizedBox(
-              height: 32,
-            ),
+            AppDimension.space32,
             CustomButton(
-              text: "Get Started",
-              onPressed: () {},
+              text: AppText.getStarted,
+              onPressed: () {
+                context.go('/register');
+              },
               width: double.infinity,
             ),
-            SizedBox(
-              height: 20,
-            ),
+            AppDimension.space20,
             AccountFooterWidget(
               isOnboarding: true,
-              mainText: "Already have an account?",
-              buttonText: "SIGN IN",
+              mainText: AppText.alreadyHaveAnAccount,
+              buttonText: AppText.signIn,
               onPressed: () {
                 context.go('/login');
               },
             ),
-            SizedBox(
-              height: 42,
-            )
+            AppDimension.space42
           ],
         ),
       ),

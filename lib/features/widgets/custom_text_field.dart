@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -12,16 +14,20 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.keyboardType,
     this.errorText,
+    this.width,
+    this.formatters,
   });
 
   final String? hintText;
-  final Icon? prefixIcon;
+  final Widget? prefixIcon;
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final Widget? suffix;
   final bool obscureText;
   final TextInputType? keyboardType;
   final String? errorText;
+  final double? width;
+  final List<TextInputFormatter>? formatters;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +35,10 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 50,
+          height: 40.h,
+          width: width,
           child: TextField(
+            inputFormatters: formatters,
             keyboardType: keyboardType,
             onChanged: onChanged,
             controller: controller,
@@ -42,7 +50,7 @@ class CustomTextField extends StatelessWidget {
               filled: true,
               hintText: hintText,
               hintStyle: GoogleFonts.montserrat(
-                fontSize: 12,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w400,
               ),
               border: OutlineInputBorder(
@@ -55,7 +63,7 @@ class CustomTextField extends StatelessWidget {
         Text(
           errorText ?? '',
           style: TextStyle(
-              color: Theme.of(context).colorScheme.error, fontSize: 10),
+              color: Theme.of(context).colorScheme.error, fontSize: 10.sp),
         ),
       ],
     );
