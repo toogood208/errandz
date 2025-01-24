@@ -1,3 +1,5 @@
+import 'package:errandz/features/widgets/app_title_heading.dart';
+import 'package:errandz/res/dimension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,15 +23,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      color: isDark ? Colors.black : Colors.white,
-      child: Column(
+    return Scaffold(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text("Errandz", style: Theme.of(context).textTheme.headlineLarge),
-          const SizedBox(height: 10),
+          AppTitleHeading(),
+          AppDimension.space10,
           SizedBox(
             height: 10,
             width: 10,
