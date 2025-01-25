@@ -1,3 +1,4 @@
+import 'package:errandz/features/authentication/forget_password/forgot_password_screen.dart';
 import 'package:errandz/features/authentication/login/login_screen.dart';
 import 'package:errandz/features/authentication/otp_screen/otp_screen.dart';
 import 'package:errandz/features/authentication/register/register_screen.dart';
@@ -27,6 +28,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/otp-screen",
       builder: (context, state) => const OtpScreen(),
+    ),
+    GoRoute(
+      path: "/forgot-password-screen",
+      builder: (context, state) => const ForgotPasswordScreen(),
     ),
   ],
 );

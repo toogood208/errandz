@@ -24,4 +24,9 @@ class AppText{
   static final didNotGetCodeTexT = "Didn't get any code yet?";
   static final resendCodeText = "Resend Code";
   static final verifyText = "Verify";
+  static final resetPassword = "Reset Password";
+  static final newPassword = "New Password";
+  static final confirmPassword = "Confirm Password";
+  static final inputPin = "Input Pin";
+  static final reset = "Reset";
 }

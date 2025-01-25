@@ -3,13 +3,14 @@ import 'package:errandz/features/widgets/account_footer_widget.dart';
 import 'package:errandz/features/widgets/app_title_heading.dart';
 import 'package:errandz/features/widgets/custom_button.dart';
 import 'package:errandz/features/widgets/custom_sheet.dart';
-import 'package:errandz/features/widgets/custom_text_field.dart';
 import 'package:errandz/res/app_text.dart';
 import 'package:errandz/res/dimension.dart';
 import 'package:errandz/res/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+
+import '../../widgets/custom_pinput.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -67,23 +68,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
               ),
               AppDimension.space16,
-              Pinput(
-                length: 6,
-                defaultPinTheme: PinTheme(
-                  width: 48.w,
-                  height: 48.h,
-                  textStyle: AppTextStyle.monte24.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondaryContainer,
-                    border: Border.all(
-                        color:
-                            Theme.of(context).colorScheme.secondaryContainer),
-                    borderRadius: BorderRadius.circular(5.r),
-                  ),
-                ),
-              ),
+              CustomPinPut(),
               AppDimension.space16,
               AccountFooterWidget(
                 mainText: AppText.didNotGetCodeTexT,
@@ -94,7 +79,8 @@ class _OtpScreenState extends State<OtpScreen> {
               CustomButton(
                   width: double.infinity,
                   text: AppText.verifyText,
-                  onPressed: () {})
+                  onPressed: () {}),
+              CustomPinPut()
             ],
           ),
         ),
@@ -102,5 +88,6 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
+
 
 

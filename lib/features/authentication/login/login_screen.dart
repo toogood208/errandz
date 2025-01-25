@@ -83,7 +83,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go('/forgot-password-screen');
+                  },
                   child: Text(
                     AppText.forgotPassword,
                     style: AppTextStyle.monte12.copyWith(
