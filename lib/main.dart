@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:errandz/res/AppText.dart';
+import 'package:errandz/res/app_text.dart';
 import 'package:errandz/services/navigation_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

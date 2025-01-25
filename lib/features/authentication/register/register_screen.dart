@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../res/AppText.dart';
+import '../../../res/app_text.dart';
 import '../../../res/style.dart';
 import '../../widgets/account_footer_widget.dart';
 import '../../widgets/app_title_heading.dart';
@@ -168,7 +167,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return CustomButton(
                         width: double.infinity,
                         text: AppText.continueWith,
-                        onPressed: value ? () {} : null);
+                        onPressed: value ? () {
+                          context.go('/otp-screen');
+                        } : null);
                   }),
               AppDimension.space10,
               AccountFooterWidget(

@@ -14,6 +14,7 @@ class AppDimension{
   static var space42 =SizedBox(height: 42.h);
   static var space150 =SizedBox(height: 150.h);
   static var space16 =SizedBox(height: 16.h);
+  static var space6 =SizedBox(height: 6.h);
 
 
   static var appPadding = EdgeInsets.symmetric(horizontal: 24.w);

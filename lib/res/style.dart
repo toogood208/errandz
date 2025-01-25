@@ -15,4 +15,8 @@ class AppTextStyle{
     fontSize: 20.sp,
     fontWeight: FontWeight.w400,
   );
+ static var monte24 = GoogleFonts.montserrat(
+  fontSize: 24.sp,
+  fontWeight: FontWeight.w400,
+ );
 }

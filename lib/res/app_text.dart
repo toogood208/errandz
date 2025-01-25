@@ -19,4 +19,9 @@ class AppText{
   static final signUp = "Sign UP";
   static final phoneCode = "+234";
   static final continueWith = "Continue";
+  static final enterCodeText = "Enter the OTP code";
+  static final inputCodeText = "Please input  the verification code sent to your email";
+  static final didNotGetCodeTexT = "Didn't get any code yet?";
+  static final resendCodeText = "Resend Code";
+  static final verifyText = "Verify";
 }

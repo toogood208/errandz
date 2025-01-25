@@ -1,12 +1,11 @@
 import 'package:errandz/features/onboarding_screen/view_model/onboarding_viewmodel.dart';
 import 'package:errandz/features/onboarding_screen/widgets/onboarding_slider.dart';
 import 'package:errandz/features/widgets/custom_button.dart';
-import 'package:errandz/res/AppText.dart';
 import 'package:errandz/res/dimension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../res/app_text.dart';
 import '../widgets/app_title_heading.dart';
 import '../widgets/account_footer_widget.dart';
 import 'widgets/onboarding_indicator.dart';
